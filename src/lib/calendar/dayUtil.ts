@@ -1,4 +1,4 @@
-import type { IDateInfo } from '$lib/types';
+import type { DateInfo } from '$lib/types';
 import { DateTime } from 'luxon';
 
 export const now = (): DateTime => {
@@ -9,7 +9,7 @@ export const getCalendar = (
 	startDate: string,
 	endDate: string,
 	weeksPerWindow: number
-): IDateInfo[][] => {
+): DateInfo[][] => {
 	const dateTime = DateTime.fromISO(startDate);
 	const startOfCalendar = dateTime.minus({ days: dateTime.weekday });
 
@@ -20,7 +20,7 @@ export const getCalendar = (
 			return {
 				date: currentDate.toISODate(),
 				state: currentDate.toISODate() <= endDate ? 'BLANK' : 'UNSELECTED'
-			} as IDateInfo;
+			} as DateInfo;
 		});
 	});
 
