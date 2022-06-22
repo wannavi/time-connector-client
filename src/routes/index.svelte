@@ -12,7 +12,9 @@
 				빠르게 만나자, BAROMEET
 			</h1>
 
-			<p class="mt-6 lg:text-lg text-gray-400">달력과 시간표를 이용해 스케줄을 공유하세요.</p>
+			<p class="mt-6 text-base sm:text-lg text-gray-400">
+				달력과 시간표를 이용해 스케줄을 공유하세요.
+			</p>
 
 			<div class="mt-8 flex flex-col space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0">
 				<a

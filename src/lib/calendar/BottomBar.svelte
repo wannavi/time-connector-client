@@ -4,7 +4,9 @@
 
 <div class="flex sm:hidden bg-[#424874] fixed inset-x-0 z-10 bottom-0 h-20 shadow">
 	<div class="flex flex-1 justify-between items-center px-12">
-		<div class="text-white">BARO-MEET</div>
+		<div class="text-white">
+			<a href="/">BAROMEET</a>
+		</div>
 
 		<div
 			role="button"
