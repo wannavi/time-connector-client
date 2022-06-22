@@ -32,6 +32,7 @@
 				<div class="date-picker-week">
 					{#each week as dateInfo, colIndex}
 						<DatePickerDate
+							today={startDate}
 							{dateInfo}
 							on:click={() => {
 								onSelected(rowIndex, colIndex);
@@ -57,7 +58,7 @@
 	}
 
 	.date-picker-horiz-sep {
-		border-top: 1px solid rgba(0, 0, 0, 0.05);
+		border-top: 1.5px solid rgba(0, 0, 0, 0.05);
 		margin-top: 25px;
 		margin-bottom: 25px;
 		width: 100%;

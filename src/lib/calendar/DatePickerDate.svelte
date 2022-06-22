@@ -2,19 +2,27 @@
 	import { DateTime } from 'luxon';
 	import type { IDateInfo } from '$lib/types';
 
+	export let today: string;
 	export let dateInfo: IDateInfo;
 	let { day, month } = DateTime.fromISO(dateInfo.date);
 </script>
 
 <div class="date-picker-date-wrapper">
-	<div
-		class="date-picker-date hover:bg-gray-100"
-		class:selected={dateInfo.state === 'SELECTED'}
-		data-month={day === 1 ? `${month}월` : ''}
-		on:click
-	>
-		{day}
-	</div>
+	{#if dateInfo.state !== 'BLANK'}
+		<div
+			class="date-picker-date hover:bg-gray-100"
+			class:selected={dateInfo.state === 'SELECTED'}
+			class:today={dateInfo.date === today}
+			data-month={day === 1 ? `${month}월` : ''}
+			on:click
+		>
+			{day}
+		</div>
+	{:else}
+		<div
+			class="date-picker-date hover:bg-gray-100"
+			data-month={day === 1 ? `${month}월` : ''}
+		/>{/if}
 </div>
 
 <style>
@@ -46,6 +54,16 @@
 	.date-picker-date::before {
 		color: #424874;
 		content: attr(data-month);
+		font-size: 12px;
+		position: absolute;
+		top: -20px;
+		right: auto;
+		bottom: auto;
+	}
+
+	.date-picker-date.today::before {
+		color: #424874;
+		content: '오늘';
 		font-size: 12px;
 		position: absolute;
 		top: -20px;
