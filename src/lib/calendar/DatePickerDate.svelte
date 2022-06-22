@@ -6,11 +6,12 @@
 	let { day, month } = DateTime.fromISO(dateInfo.date);
 </script>
 
-<div class="date-picker-date-wrapper" on:click>
+<div class="date-picker-date-wrapper">
 	<div
 		class="date-picker-date hover:bg-gray-100"
 		class:selected={dateInfo.state === 'SELECTED'}
 		data-month={day === 1 ? `${month}월` : ''}
+		on:click
 	>
 		{day}
 	</div>
