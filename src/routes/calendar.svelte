@@ -9,7 +9,10 @@
 <div id="content-wrapper" class="mt-48">
 	<div id="home-heading-row" class="flex justify-between items-center mb-24">
 		<HomeHeading title={`일정을 달력에서 선택해주세요. (오늘: ${today.toISODate()})`} />
-		<div role="button" class="create-button  text-white text-lg py-2 px-8 rounded-lg">
+		<div
+			role="button"
+			class="create-button hidden sm:block text-white py-2 px-8 rounded-lg text-sm md:text-xl font-thin"
+		>
 			Let's meet
 		</div>
 	</div>

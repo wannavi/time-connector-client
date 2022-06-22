@@ -5,7 +5,7 @@
 
 	export let startDate: string;
 	export let endDate: string;
-	export let weeksPerWindow: number = 4;
+	export let weeksPerWindow = 4;
 
 	let daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 	let currentWindow: IDateInfo[][] = getCalendar(startDate, endDate, weeksPerWindow);
@@ -66,5 +66,15 @@
 	.date-picker-week {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.date-picker-week:not(:first-child) {
+		margin-top: 20px;
+	}
+
+	@media screen and (max-width: 768px) {
+		.date-picker-day-of-week {
+			padding: 0 5px;
+		}
 	}
 </style>

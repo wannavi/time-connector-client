@@ -56,4 +56,18 @@
 		background: #424874 !important;
 		color: #fff !important;
 	}
+
+	@media screen and (max-width: 768px) {
+		.date-picker-date {
+			height: 30px;
+			width: 30px;
+		}
+	}
+
+	@media screen and (max-width: 479px) {
+		.date-picker-date-wrapper {
+			margin: 0px;
+			padding: 0px;
+		}
+	}
 </style>
