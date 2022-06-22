@@ -4,7 +4,7 @@ module.exports = {
 	theme: {
 		extend: {
 			screens: {
-				'hover-hover': { raw: '(hover: hover)' }
+				'hover-hover': { raw: '(hover: hover) and (pointer: fine)' }
 			}
 		}
 	},
