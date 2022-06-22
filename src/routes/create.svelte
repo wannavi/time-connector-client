@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ContentWrapper from '$lib/base/ContentWrapper.svelte';
+	import BottomBar from '$lib/calendar/BottomBar.svelte';
 	import HomeHeading from '$lib/header/HomeHeading.svelte';
 	import { pollDates } from '$lib/store/pollDates';
 
@@ -55,4 +56,6 @@
 			/>
 		</div>
 	</form>
+
+	<BottomBar onClickedCallback={handleSubmit} />
 </ContentWrapper>

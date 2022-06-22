@@ -22,7 +22,11 @@
 		</div>
 	</div>
 	<DatePicker endDate={yesterday.toISODate()} startDate={today.toISODate()} weeksPerWindow={4} />
-	<BottomBar />
+	<BottomBar
+		onClickedCallback={() => {
+			if ($pollDates.length) location.href = '/create';
+		}}
+	/>
 </ContentWrapper>
 
 <style>
