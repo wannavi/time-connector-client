@@ -43,9 +43,7 @@
 						<DatePickerDate
 							today={startDate}
 							{dateInfo}
-							on:click={() => {
-								onSelected(rowIndex, colIndex);
-							}}
+							on:click={() => onSelected(rowIndex, colIndex)}
 						/>
 					{/each}
 				</div>
