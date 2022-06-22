@@ -2,8 +2,8 @@
 	import type { DateInfo } from '$lib/types';
 	import DatePickerDate from './DatePickerDate.svelte';
 	import { getCalendar } from './dayUtil';
-	import { dates } from '$lib/store/dates';
-	import { onMount } from 'svelte';
+	import { pollDates } from '$lib/store/pollDates';
+	import { beforeUpdate } from 'svelte';
 
 	export let startDate: string;
 	export let endDate: string;
@@ -12,21 +12,26 @@
 	let daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 	let currentWindow: DateInfo[][] = getCalendar(startDate, endDate, weeksPerWindow);
 
+	// sync state with local storage
+	beforeUpdate(() => {
+		currentWindow.forEach((week) => {
+			week.forEach((day) => {
+				if ($pollDates.includes(day.date)) {
+					day.state = 'SELECTED';
+				}
+			});
+		});
+	});
+
 	function onSelected(rowIndex: number, colIndex: number) {
 		if (currentWindow[rowIndex][colIndex].state == 'UNSELECTED') {
 			currentWindow[rowIndex][colIndex].state = 'SELECTED';
-			dates.push(currentWindow[rowIndex][colIndex].date);
+			pollDates.push(currentWindow[rowIndex][colIndex].date);
 		} else if (currentWindow[rowIndex][colIndex].state == 'SELECTED') {
 			currentWindow[rowIndex][colIndex].state = 'UNSELECTED';
-			dates.pop(currentWindow[rowIndex][colIndex].date);
+			pollDates.pop(currentWindow[rowIndex][colIndex].date);
 		}
-		console.log($dates);
 	}
-
-	// store와 state의 불일치를 막기 위해서
-	onMount(() => {
-		dates.reset();
-	});
 </script>
 
 <div class="home-date-picker-wrapper">

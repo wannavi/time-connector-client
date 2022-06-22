@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { dates } from '$lib/store/dates';
+	import { pollDates } from '$lib/store/pollDates';
 </script>
 
 <div class="flex sm:hidden bg-[#424874] fixed inset-x-0 z-10 bottom-0 h-20 shadow">
@@ -10,7 +10,7 @@
 			role="button"
 			class="block sm:hidden bg-white hover:bg-[#424874] text-[#424874] hover:text-white py-2 px-8 rounded-lg text-md md:text-xl font-thin border border-slate-200"
 		>
-			<a href={$dates.length ? '/create' : ''}>Let's meet</a>
+			<a href={$pollDates.length ? '/create' : ''}>다음</a>
 		</div>
 	</div>
 </div>

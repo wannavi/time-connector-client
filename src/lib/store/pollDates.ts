@@ -1,7 +1,7 @@
 import type { ISODate } from '$lib/types';
 import storage from '$lib/store';
 
-const initializeDates = () => {
+const initializePollDates = () => {
 	const { subscribe, set, update } = storage<ISODate[]>('dates', []);
 	return {
 		subscribe,
@@ -11,4 +11,4 @@ const initializeDates = () => {
 	};
 };
 
-export const dates = initializeDates();
+export const pollDates = initializePollDates();
