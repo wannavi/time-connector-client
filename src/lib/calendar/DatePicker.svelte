@@ -3,7 +3,7 @@
 	import DatePickerDate from './DatePickerDate.svelte';
 	import { getCalendar } from './dayUtil';
 	import { pollDates } from '$lib/store/pollDates';
-	import { beforeUpdate } from 'svelte';
+	import { onMount } from 'svelte';
 
 	export let startDate: string;
 	export let endDate: string;
@@ -13,14 +13,8 @@
 	let currentWindow: DateInfo[][] = getCalendar(startDate, endDate, weeksPerWindow);
 
 	// sync state with local storage
-	beforeUpdate(() => {
-		currentWindow.forEach((week) => {
-			week.forEach((day) => {
-				if ($pollDates.includes(day.date)) {
-					day.state = 'SELECTED';
-				}
-			});
-		});
+	onMount(() => {
+		pollDates.reset();
 	});
 
 	function onSelected(rowIndex: number, colIndex: number) {
