@@ -19,10 +19,7 @@
 			{day}
 		</div>
 	{:else}
-		<div
-			class="date-picker-date hover:bg-gray-100"
-			data-month={day === 1 ? `${month}월` : ''}
-		/>{/if}
+		<div class="date-picker-date " data-month={day === 1 ? `${month}월` : ''} />{/if}
 </div>
 
 <style>

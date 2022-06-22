@@ -1,19 +1,17 @@
-<script lang="ts">
-</script>
+<script lang="ts"></script>
 
-<div id="bottom-bar" class="hidden sm:block">
-	<div id="bottom-bar-actions" />
+<div class="flex sm:hidden bg-[#424874] fixed inset-x-0 z-10 bottom-0 h-20 shadow">
+	<div class="flex flex-1 justify-between items-center px-12">
+		<div class="text-white">BARO-MEET</div>
+
+		<div
+			role="button"
+			class="block sm:hidden bg-white hover:bg-[#424874] text-[#424874] hover:text-white py-2 px-8 rounded-lg text-md md:text-xl font-thin border border-slate-200"
+		>
+			Let's meet
+		</div>
+	</div>
 </div>
 
 <style>
-	#bottom-bar {
-		background: #424874;
-		position: fixed;
-		top: auto;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		height: 75px;
-		z-index: 50;
-	}
 </style>
